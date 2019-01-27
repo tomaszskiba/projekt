@@ -1,0 +1,21 @@
+<div class="adjustments">
+  <a routerLink="/film/add" class="btn btn-primary" style="float: right; width: 20%">Dodaj nowy</a>
+</div>
+<div style="clear: both;"></div>
+<br>
+<div class="card-columns" style="margin-left: 10%; width: 80%">
+
+  <div class="card bg-secondary" *ngFor="let item of items | filter:filterText">
+
+    <div align="center">
+      <div class="card-body" style="width: 70%">
+
+        <app-film-item [image]="item.url" [title]="item.title" ></app-film-item>
+
+        <a (click)="loadDetails(item.title, item.url, items.indexOf(item), item.content, item.director, item.genre, item.duration)"
+           class="btn btn-danger button-adjustment">Szczegóły</a>
+      </div>
+
+    </div>
+  </div>
+</div>
